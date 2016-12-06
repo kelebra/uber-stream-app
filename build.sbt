@@ -18,3 +18,5 @@ libraryDependencies ++= Seq(
 testFrameworks += new TestFramework("utest.runner.Framework")
 
 scalaJSStage := FastOptStage
+
+jsDependencies += RuntimeDOM
