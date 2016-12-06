@@ -7,5 +7,9 @@ object SimpleTest extends TestSuite {
     "simple test here" - {
       2 + 2 ==> 4
     }
+
+    "one more test" - {
+      2 + 3 ==> 5
+    }
   }
 }
