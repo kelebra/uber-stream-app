@@ -6,5 +6,5 @@ import scalatags.JsDom.all._
 
 object Content {
 
-  def apply() = div(`class` := "pusher ui stackable grid", ToggleButton()).render
+  def empty() = div(`class` := "pusher ui stackable grid", ToggleButton()).render
 }

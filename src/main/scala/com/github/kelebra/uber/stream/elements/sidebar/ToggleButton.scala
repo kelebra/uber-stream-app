@@ -8,16 +8,10 @@ import scalatags.JsDom.all._
 object ToggleButton {
 
   def apply() = div(
-    `class` := "row",
-    div(`class` := "fourteen wide column"),
-    div(`class` := "center aligned two wide column",
-      button(
-        id := "toggle-menu-button",
-        `class` := "circular ui icon button",
-        i(`class` := "icon settings"),
-        onclick := toggleSidebars
-      )
-    )
+    `class` := "ui black big launch right attached fixed button",
+    style := "display: block; position: fixed; top: 2.5em; left: 0px;",
+    i(`class` := "content icon"),
+    onclick := toggleSidebars
   )
 
   private val toggleSidebars: MouseEvent => Unit = event => {
