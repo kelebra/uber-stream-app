@@ -19,6 +19,8 @@ sealed case class StreamDisplay(`height in pixels`: Int = 800,
     appendToBody(frame.render)
     frame
   }
+
+  def delete() = removeFromBody(element)
 }
 
 sealed abstract class Source(url: String) {
