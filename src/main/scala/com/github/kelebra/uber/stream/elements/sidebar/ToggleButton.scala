@@ -9,7 +9,7 @@ object ToggleButton {
 
   def apply() = div(
     `class` := "ui black big launch right attached fixed button",
-    style := "display: block; position: fixed; top: 2.5em; left: 0px;",
+    style := "display: block; position: fixed; top: 0.5em; left: 0px;",
     i(`class` := "content icon"),
     onclick := toggleSidebars
   )

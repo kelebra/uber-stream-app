@@ -1,12 +1,12 @@
 package com.github.kelebra.uber.stream
 
-import com.github.kelebra.uber.stream.elements.Content
 import com.github.kelebra.uber.stream.elements.sidebar.StreamSourceSelection
+import com.github.kelebra.uber.stream.elements.streams.Content
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExport
 
-object App extends js.JSApp with UI {
+object App extends js.JSApp with DOMAware {
 
   def defineHead(): Unit = {
     metaInfo()

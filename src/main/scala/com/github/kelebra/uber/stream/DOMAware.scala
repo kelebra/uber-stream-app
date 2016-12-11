@@ -1,15 +1,20 @@
 package com.github.kelebra.uber.stream
 
+import org.scalajs.dom.html.Element
 import org.scalajs.dom.{Node, document}
 
 import scalatags.JsDom.all._
 
-trait UI {
+trait DOMAware {
 
   def replaceBodyWith(elements: Node*): Unit = {
     document.body.innerHTML = ""
     elements.foreach(document.body.appendChild)
   }
+
+  def appendToBody(elements: Node*): Unit = elements.foreach(document.body.appendChild)
+
+  def removeFromBody(elements: Element*): Unit = elements.foreach(_.outerHTML = "")
 
   private def addToHead(element: Node): Unit = document.head.appendChild(element)
 
