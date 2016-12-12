@@ -1,12 +1,13 @@
 package com.github.kelebra.uber.stream.elements.streams
 
 import com.github.kelebra.uber.stream.DOMAware
+import com.github.kelebra.uber.stream.common.Source
 import org.scalajs.dom.html.IFrame
 
 import scalatags.JsDom.all._
 
-sealed case class StreamDisplay(`height in pixels`: Int = 800,
-                                `width in pixels`: Int = 600,
+sealed case class StreamDisplay(`height in pixels`: Int = 600,
+                                `width in pixels`: Int = 800,
                                 source: Source,
                                 `channel name`: String) extends DOMAware {
 
@@ -22,10 +23,3 @@ sealed case class StreamDisplay(`height in pixels`: Int = 800,
 
   def delete() = removeFromBody(element)
 }
-
-sealed abstract class Source(url: String) {
-
-  def `rendered url`(channel: String) = s"$url$channel"
-}
-
-case object Twitch extends Source("http://player.twitch.tv/?channel=")

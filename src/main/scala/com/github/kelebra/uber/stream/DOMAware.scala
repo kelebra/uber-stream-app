@@ -16,6 +16,8 @@ trait DOMAware {
 
   def removeFromBody(elements: Element*): Unit = elements.foreach(_.outerHTML = "")
 
+  def exists(id: String): Boolean = document.getElementById(id) != null
+
   private def addToHead(element: Node): Unit = document.head.appendChild(element)
 
   def metaInfo(): Unit = addToHead(

@@ -1,6 +1,7 @@
 package com.github.kelebra.uber.stream.elements.streams
 
 import com.github.kelebra.uber.stream.App
+import com.github.kelebra.uber.stream.common.Twitch
 import utest._
 
 object ContentSpecification extends TestSuite {

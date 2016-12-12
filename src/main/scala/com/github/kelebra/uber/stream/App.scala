@@ -1,5 +1,6 @@
 package com.github.kelebra.uber.stream
 
+import com.github.kelebra.uber.stream.common.Twitch
 import com.github.kelebra.uber.stream.elements.sidebar.StreamSourceSelection
 import com.github.kelebra.uber.stream.elements.streams.Content
 
@@ -10,6 +11,8 @@ object App extends js.JSApp with DOMAware {
 
   def defineHead(): Unit = {
     metaInfo()
+
+    js("https://code.jquery.com/jquery-3.1.0.min.js")
 
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/reset.min.css")
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/site.min.css")
@@ -28,16 +31,20 @@ object App extends js.JSApp with DOMAware {
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/transition.min.css")
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/card.min.css")
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/statistic.min.css")
+    css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/dimmer.min.css")
+    css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/modal.min.css")
+    css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/input.min.css")
 
-    js("https://code.jquery.com/jquery-3.1.0.min.js")
     js("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/visibility.min.js")
     js("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/sidebar.min.js")
     js("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/transition.min.js")
+    js("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/dimmer.min.js")
+    js("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/modal.min.js")
   }
 
   @JSExport
   override def main(): Unit = {
     defineHead()
-    replaceBodyWith(Content.empty(), StreamSourceSelection())
+    replaceBodyWith(Content.empty(), StreamSourceSelection(Twitch))
   }
 }
