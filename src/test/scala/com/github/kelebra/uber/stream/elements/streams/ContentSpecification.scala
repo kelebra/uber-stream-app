@@ -21,7 +21,7 @@ object ContentSpecification extends TestSuite {
       Content ++("some channel", Twitch)
       Content ++("another channel", Twitch)
       Content -("another channel", Twitch)
-      Content.count ==> 1
+      Content.count ==> 2
     }
   }
 }

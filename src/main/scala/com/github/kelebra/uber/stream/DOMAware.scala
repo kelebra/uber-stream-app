@@ -1,7 +1,7 @@
 package com.github.kelebra.uber.stream
 
-import org.scalajs.dom.html.Element
-import org.scalajs.dom.{Node, document}
+import org.scalajs.dom.html.{Element, Input}
+import org.scalajs.dom.{Node, UIEvent, document, window}
 
 import scalatags.JsDom.all._
 
@@ -9,6 +9,7 @@ trait DOMAware {
 
   def replaceBodyWith(elements: Node*): Unit = {
     document.body.innerHTML = ""
+    document.body.style.backgroundColor = "black"
     elements.foreach(document.body.appendChild)
   }
 
@@ -17,6 +18,17 @@ trait DOMAware {
   def removeFromBody(elements: Element*): Unit = elements.foreach(_.outerHTML = "")
 
   def exists(id: String): Boolean = document.getElementById(id) != null
+
+  def clear(input: Input): Unit = input.value = ""
+
+  def windowWidth = document.body.offsetWidth.toInt
+
+  def windowHeight = document.body.offsetHeight.toInt
+
+  def onResize(f: () => Unit): Unit = {
+    val handler: UIEvent => Unit = _ => f()
+    window.onresize = handler
+  }
 
   private def addToHead(element: Node): Unit = document.head.appendChild(element)
 

@@ -1,7 +1,7 @@
 package com.github.kelebra.uber.stream
 
 import com.github.kelebra.uber.stream.common.Twitch
-import com.github.kelebra.uber.stream.elements.sidebar.StreamSourceSelection
+import com.github.kelebra.uber.stream.elements.sidebar.{StreamControl, StreamSourceSelection}
 import com.github.kelebra.uber.stream.elements.streams.Content
 
 import scala.scalajs.js
@@ -34,6 +34,7 @@ object App extends js.JSApp with DOMAware {
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/dimmer.min.css")
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/modal.min.css")
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/input.min.css")
+    css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/reveal.min.css")
 
     js("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/visibility.min.js")
     js("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/sidebar.min.js")
@@ -45,6 +46,6 @@ object App extends js.JSApp with DOMAware {
   @JSExport
   override def main(): Unit = {
     defineHead()
-    replaceBodyWith(Content.empty(), StreamSourceSelection(Twitch))
+    replaceBodyWith(Content.empty(), StreamSourceSelection(Twitch), StreamControl())
   }
 }

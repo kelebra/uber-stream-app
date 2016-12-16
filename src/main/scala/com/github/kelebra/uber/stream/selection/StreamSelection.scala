@@ -56,7 +56,10 @@ object StreamSelection extends DOMAware {
   }
 
   private def addStream(channelInput: Input, source: Source): MouseEvent => Unit =
-    _ => Content ++(channelInput.value, source)
+    _ => {
+      Content ++(channelInput.value.toLowerCase, source)
+      clear(channelInput)
+    }
 
   private val openModal: MouseEvent => Unit = _ =>
     scalajs.js.eval(s"$$('.modal').modal('setting', 'closable', false).modal('show');")
