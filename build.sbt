@@ -1,5 +1,5 @@
 import java.io.PrintWriter
-import java.nio.file.Files
+import java.nio.file.{CopyOption, Files, StandardCopyOption}
 
 enablePlugins(ScalaJSPlugin)
 
@@ -24,32 +24,22 @@ scalaJSStage := FastOptStage
 
 jsDependencies += RuntimeDOM
 
-val prodIndexHtml =
-  """
-    |<html>
-    |<head>
-    |    <script type="text/javascript" src="./uber-stream-app-opt.js"></script>
-    |</head>
-    |<body>
-    |<script type="text/javascript">
-    |    com.github.kelebra.uber.stream.App().main();
-    |</script>
-    |</body>
-    |</html>
-  """.stripMargin
-
 val githubPages = taskKey[Unit]("Copy index.html and js files")
 
 githubPages := {
   // 1) Copy compiled prod js
   val js = (fullOptJS in Compile).value.data
   val jsTarget = new File(".", js.getName)
-  Files.copy(js.toPath, jsTarget.toPath)
+  Files.copy(js.toPath, jsTarget.toPath, StandardCopyOption.REPLACE_EXISTING)
 
-  // 2) Create prod index.html
+  // 2) Read current index.html
+  val indexContent = scala.io.Source.fromFile(new File(".", "src/main/resources/index.html"))
+    .mkString.replace("fastopt", "opt")
+
+  // 3) Create prod index.html
   val index = new File(".", "index.html")
   if (index.exists()) index.delete()
   val writer = new PrintWriter(index)
-  writer.write(prodIndexHtml)
+  writer.write(indexContent)
   writer.close()
 }

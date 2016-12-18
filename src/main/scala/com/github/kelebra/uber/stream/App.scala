@@ -12,8 +12,6 @@ object App extends js.JSApp with DOMAware {
   def defineHead(): Unit = {
     metaInfo()
 
-    js("https://code.jquery.com/jquery-3.1.0.min.js")
-
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/reset.min.css")
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/site.min.css")
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/container.min.css")
