@@ -17,11 +17,11 @@ object StreamSelection extends DOMAware {
 
   def selectionIdOf(source: Source): String = s"stream-selection-${source.name}"
 
-  def createChannelInput() =
-    input(`type` := "text", placeholder := "wagamamatv", style := "color: white").render
+  def createChannelInput(source: Source) =
+    input(`type` := "text", placeholder := s"${source.defaultChannel}", style := "color: white").render
 
   def modal(source: Source) = {
-    val channelInput = createChannelInput()
+    val channelInput = createChannelInput(source)
     div(
       id := selectionIdOf(source),
       `class` := "ui basic modal",

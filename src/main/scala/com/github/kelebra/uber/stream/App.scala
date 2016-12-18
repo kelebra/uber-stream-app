@@ -1,6 +1,6 @@
 package com.github.kelebra.uber.stream
 
-import com.github.kelebra.uber.stream.common.{Hitbox, Twitch}
+import com.github.kelebra.uber.stream.common.{Hitbox, Twitch, YouTube}
 import com.github.kelebra.uber.stream.elements.sidebar.{StreamControl, StreamSourceSelection}
 import com.github.kelebra.uber.stream.elements.streams.Content
 
@@ -45,6 +45,6 @@ object App extends js.JSApp with DOMAware {
   @JSExport
   override def main(): Unit = {
     defineHead()
-    replaceBodyWith(Content.empty(), StreamSourceSelection(Twitch, Hitbox), StreamControl())
+    replaceBodyWith(Content.empty(), StreamSourceSelection(Twitch, Hitbox, YouTube), StreamControl())
   }
 }
