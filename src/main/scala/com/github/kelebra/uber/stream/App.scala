@@ -34,7 +34,6 @@ object App extends js.JSApp with DOMAware {
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/dimmer.min.css")
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/modal.min.css")
     css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/input.min.css")
-    css("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/reveal.min.css")
 
     js("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/visibility.min.js")
     js("https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/sidebar.min.js")
