@@ -6,3 +6,5 @@ sealed case class Source(name: String, icon: String, url: String) {
 }
 
 object Twitch extends Source("Twitch", "twitch", "http://player.twitch.tv/?channel=")
+
+object Hitbox extends Source("Hitbox", "inbox", "http://hitbox.tv/#!/embed/")

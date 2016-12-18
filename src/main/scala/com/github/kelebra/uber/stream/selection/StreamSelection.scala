@@ -12,7 +12,7 @@ object StreamSelection extends DOMAware {
 
   def apply(source: Source): Unit = {
     createModalFor(source)
-    openModal(null)
+    openModal(selectionIdOf(source))
   }
 
   def selectionIdOf(source: Source): String = s"stream-selection-${source.name}"
@@ -61,6 +61,6 @@ object StreamSelection extends DOMAware {
       clear(channelInput)
     }
 
-  private val openModal: MouseEvent => Unit = _ =>
-    scalajs.js.eval(s"$$('.modal').modal('setting', 'closable', false).modal('show');")
+  private def openModal(id: String): Unit =
+    scalajs.js.eval(s"$$('#$id').modal('setting', 'closable', false).modal('show')")
 }
