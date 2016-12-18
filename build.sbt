@@ -1,5 +1,7 @@
 import java.io.PrintWriter
-import java.nio.file.{CopyOption, Files, StandardCopyOption}
+import java.nio.file.{Files, StandardCopyOption}
+
+import scala.io.Source
 
 enablePlugins(ScalaJSPlugin)
 
@@ -33,8 +35,10 @@ githubPages := {
   Files.copy(js.toPath, jsTarget.toPath, StandardCopyOption.REPLACE_EXISTING)
 
   // 2) Read current index.html
-  val indexContent = scala.io.Source.fromFile(new File(".", "src/main/resources/index.html"))
-    .mkString.replace("fastopt", "opt")
+  val indexContent = Source.fromFile("./src/main/resources/index.html")
+    .mkString
+    .replace("fastopt", "opt")
+    .replace("target/scala-2.11/", "")
 
   // 3) Create prod index.html
   val index = new File(".", "index.html")
