@@ -30,6 +30,11 @@ trait DOMAware {
     window.onresize = handler
   }
 
+  def resize(element: Element, width: Int, height: Int): Unit = {
+    element.style.width = width.px
+    element.style.height = height.px
+  }
+
   private def addToHead(element: Node): Unit = document.head.appendChild(element)
 
   def metaInfo(): Unit = addToHead(

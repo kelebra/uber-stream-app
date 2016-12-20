@@ -8,7 +8,7 @@ object StreamControl {
 
   val controlPanel = div(
     id := "stream-controls",
-    `class` := "ui bottom sidebar inverted horizontal labeled icon menu",
+    `class` := "ui bottom sidebar inverted horizontal menu",
     a(`class` := "item", i(`class` := "settings icon"), "Controls:")
   ).render
 

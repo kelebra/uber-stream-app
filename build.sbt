@@ -26,7 +26,7 @@ scalaJSStage := FastOptStage
 
 jsDependencies += RuntimeDOM
 
-val githubPages = taskKey[Unit]("Copy index.html and js files")
+val githubPages = taskKey[Unit]("Copy index.html and js files to match github pages layout")
 
 githubPages := {
   // 1) Copy compiled prod js
