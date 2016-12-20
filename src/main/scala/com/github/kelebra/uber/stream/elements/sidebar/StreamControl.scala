@@ -6,11 +6,7 @@ import scalatags.JsDom.all._
 
 object StreamControl {
 
-  val controlPanel = div(
-    id := "stream-controls",
-    `class` := "ui bottom sidebar inverted horizontal menu",
-    a(`class` := "item", i(`class` := "settings icon"), "Controls:")
-  ).render
+  val controlPanel = div(id := "stream-controls", `class` := "ui bottom sidebar inverted horizontal menu").render
 
   def apply() = controlPanel
 
