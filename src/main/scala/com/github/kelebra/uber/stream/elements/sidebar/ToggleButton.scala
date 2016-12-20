@@ -8,8 +8,8 @@ import scalatags.JsDom.all._
 object ToggleButton {
 
   def apply() = div(
-    `class` := "ui black big launch right attached fixed button",
-    style := "display: block; position: fixed; top: 0.5em; left: 0px;",
+    `class` := "ui black big launch left attached fixed button",
+    style := "display: block; position: fixed; top: 0.5em; right: 0px;",
     i(`class` := "content icon"),
     onclick := toggleSidebars
   )
